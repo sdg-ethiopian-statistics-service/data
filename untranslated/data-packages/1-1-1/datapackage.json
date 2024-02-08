@@ -15,19 +15,42 @@
             "type": "integer"
           },
           {
-            "name": "Group",
+            "name": "REF_AREA",
             "type": "string",
             "constraints": {
               "enum": [
-                "A",
-                "B",
+                "KG",
+                "TH",
+                ""
+              ]
+            }
+          },
+          {
+            "name": "SEX",
+            "type": "string",
+            "constraints": {
+              "enum": [
+                "F",
+                "M",
+                ""
+              ]
+            }
+          },
+          {
+            "name": "AGE",
+            "type": "string",
+            "constraints": {
+              "enum": [
+                "Y_GE15",
+                "Y_GE25",
+                "Y15T24",
                 ""
               ]
             }
           },
           {
             "name": "Value",
-            "type": "integer"
+            "type": "number"
           }
         ]
       }
