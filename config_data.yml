@@ -52,6 +52,8 @@ inputs:
     import_codes: true
     import_series_attributes: true
     import_observation_attributes: true
+    indicator_id_map:
+     _L_ET_010101_01:1-1-1
   - class: InputYamlMeta
     path_pattern: indicator-config/*-*.yml
     git: false
