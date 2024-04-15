@@ -49,7 +49,7 @@ inputs:
       - REPORTING_TYPE
       - NATURE
       - TIME_COVERAGE
-    import_codes: true
+    #import_codes: true
     import_series_attributes: true
     import_observation_attributes: true
     indicator_id_map:
@@ -90,7 +90,7 @@ translations:
   # This pulls in translations from a Git repository.
   - class: TranslationInputSdgTranslations
     source: https://github.com/open-sdg/sdg-translations.git
-    tag: 2.2.0
+    tag: 2.3.0
   - class: TranslationInputSdmx
     source: 'LocalRegistry.xml'
   # This pulls in translations from a local 'translations' folder.
