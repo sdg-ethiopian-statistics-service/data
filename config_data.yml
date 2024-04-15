@@ -90,7 +90,7 @@ translations:
   # This pulls in translations from a Git repository.
   - class: TranslationInputSdgTranslations
     source: https://github.com/open-sdg/sdg-translations.git
-    tag: 2.2.0
+    tag: 2.3.0
   - class: TranslationInputSdmx
     source: 'LocalRegistry.xml'
   # This pulls in translations from a local 'translations' folder.
