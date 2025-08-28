@@ -1,1 +1,7 @@
-Year,Value
+Year,Observation status,Unit multiplier,SERIES,Reference area,Degree of urbanisation,UNIT_MEASURE,Value
+2020,Normal value,Units,Proportion of population living below the national poverty line [1.2.1],Ethiopia,Rural,Percent,19.0
+2023,Normal value,Units,Proportion of population living below the national poverty line [1.2.1],Ethiopia,Rural,Percent,19.0
+2000,Normal value,Units,Proportion of population living below the national poverty line [1.2.1],Ethiopia,Urban,Percent,44.2
+2013,Normal value,Units,Proportion of population living below the national poverty line [1.2.1],Ethiopia,Urban,Percent,24.0
+2015,Normal value,Units,Proportion of population living below the national poverty line [1.2.1],Ethiopia,Urban,Percent,23.4
+2016,Normal value,Units,Proportion of population living below the national poverty line [1.2.1],Ethiopia,Urban,Percent,23.5
