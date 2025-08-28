@@ -39,44 +39,40 @@ src_dir: ''
 # folder. Further, each item can have any/all of the parameters that class uses.
 # The defaults below show what is used when this is omitted.
 inputs:
-  - class: InputSdmxMl_Multiple
-    path_pattern: 'data/*.xml'
-    dsd: 'LocalRegistry.xml'
+  - class: InputCsvData
+    # This describes the data files, relative to the "src_dir" indicated above.
+    path_pattern: data/*-*.csv
+  - class: InputSdmxMl_Structure
+    source: https://et.sdmx.afdb.org/ns-ws/rest/data/ET1,DF_SDG_TEST_ET,1.0/A............../ALL/?detail=full&dimensionAtObservation=TIME_PERIOD
+    dsd: https://et.sdmx.afdb.org/ns-ws/rest/dataflow/ET1/DF_SDG_TEST_ET/1.0/?detail=Full&references=Descendants
     dimension_map:
       REF_AREA|ET: ''
     drop_dimensions:
       - FREQ
       - REPORTING_TYPE
       - NATURE
-      - TIME_COVERAGE
-    #import_codes: true
+      - TIME_PERIOD
+    drop_singleton_dimensions: false
     import_series_attributes: true
     import_observation_attributes: true
     indicator_id_map:
      _L_ET_010101_01: 1-1-1
+    import_codes: true
+    request_params: 
+      headers: 
+        User-Agent: Open-SDG-Build-1 
+  - class: InputWordMeta
+    path_pattern: meta/*-*.docm
   - class: InputYamlMeta
     path_pattern: indicator-config/*-*.yml
     git: false
   - class: InputYamlMeta
     # This describes the meta files, relative to the "src_dir" indicated above.
     path_pattern: meta/*-*.yml
-    # This specifies whether or not to use Git to calculate the "last updated"
-    # dates for data files.
-    git: true
-    # This specifies an alternate folder to look in for Git-versioned data files,
-    # when calculating the "last updated" dates for data files. This defaults to
-    # "data" (the folder where the data files actually exist.) Most sites will not
-    # need to change this setting. It is intended for sites where the data needs
-    # to be "built" before being processed by sdg-build.
-    git_data_dir: data
+    git: false
   - class: InputSdmxMeta
     meta_suffix: __GLOBAL
-# Metadata Schema
-# This inputs multiple metadata schema to control which metadata tabs
-# the various fields appear in (eg, National, Global, Sources)
-#  - class: SchemaInputSdmxMsd
-#    schema_path: SDG_MSD.xml
-#    scope: national
+
 # Translations
 # ------------
 # The allows control over the imported translations. This can be omitted if you
@@ -91,11 +87,14 @@ translations:
   - class: TranslationInputSdgTranslations
     source: https://github.com/open-sdg/sdg-translations.git
     tag: 2.3.0
-  - class: TranslationInputSdmx
-    source: 'LocalRegistry.xml'
   # This pulls in translations from a local 'translations' folder.
   - class: TranslationInputYaml
     source: translations
+  - class: TranslationInputSdmx
+    source: https://et.sdmx.afdb.org/ns-ws/rest/dataflow/ET1/DF_SDG_TEST_ET/1.0/?detail=Full&references=Descendants
+    request_params:
+      headers:
+        User-Agent: Open-SDG-Build-1
 
 # Reporting status extra fields
 # -----------------------------
